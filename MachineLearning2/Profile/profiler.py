@@ -137,6 +137,11 @@ df['賃料料+管理費'] = df['賃料料'] + df['管理費']
 #上限価格を設定
 df = df[df['賃料料+管理費'] < 300000]
 
+df["per_area"] = df["area"]/df["room_number"]
+df["height_level"] = df["height"]*df["level"]
+df["area_height_level"] = df["area"]*df["height_level"]
+df["distance_staion_1"] = df["station_1"]*df["distance_1"]
+
 df = df[["マンション名",'賃料料+管理費', '築年数', '建物の高さ', '階1',
        '専有面積','路線1','路線2','路線3', '駅1', '駅2','駅3','徒歩1', '徒歩2','徒歩3','間取り', '間取りDK', '間取りK', '間取りL', '間取りS',
        '市町村']]
